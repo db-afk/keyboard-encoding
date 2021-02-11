@@ -1,6 +1,8 @@
 package operations;
 
-public class VerticalFlip extends AbstractOperation implements ShuffleOperation {
+public class VerticalFlip implements ShuffleOperation {
+    
+    private Character[][] ma3x;
     
     @Override
     public void execute() {
@@ -11,5 +13,15 @@ public class VerticalFlip extends AbstractOperation implements ShuffleOperation 
                 ma3x[x][y] = tmp;
             }
         }
+    }
+    
+    @Override
+    public Character[][] getMa3x() {
+        return ma3x;
+    }
+    
+    @Override
+    public void setMa3x(Character[][] ma3x) {
+        this.ma3x = ma3x;
     }
 }

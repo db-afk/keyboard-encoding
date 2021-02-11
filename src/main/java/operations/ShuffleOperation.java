@@ -1,13 +1,10 @@
 package operations;
 
-import java.util.Map;
-
-@FunctionalInterface
 public interface ShuffleOperation {
     
     void execute();
     
-    default Map<Character, Character> getMap() {
-        return null;
-    }
+    Character[][] getMa3x();
+    
+    void setMa3x(Character[][] ma3x);
 }

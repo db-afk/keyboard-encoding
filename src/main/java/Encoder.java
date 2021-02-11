@@ -1,12 +1,18 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Map;
 
 public class Encoder {
     private final OperationExecutor executor;
-    private final String text;
+    private String text;
     
-    public Encoder(OperationExecutor executor, String text) {
+    public Encoder(OperationExecutor executor) {
         this.executor = executor;
-        this.text = text;
+    }
+    
+    public void setText(Path path) throws IOException {
+        this.text = String.join("", Files.readAllLines(path));
     }
     
     public String getEncodedText() {

@@ -20,6 +20,7 @@ public class Main {
         
         Encoder encoder = new Encoder(queue);
         encoder.setText(lorem);
+        System.out.println("originalText = " + encoder.getText());
         final String encodedText = encoder.getEncodedText();
         System.out.println("encodedText = " + encodedText);
     }

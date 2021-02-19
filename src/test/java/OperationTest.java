@@ -16,10 +16,10 @@ public class OperationTest {
         Path digit = Paths.get("src/test/resources/digit.txt");
         Path kbd = Paths.get("src/test/resources/kbd.txt");
         OperationExecutor queue = new OperationExecutor(MatrixTransformer.transformMatrix(kbd));
-        queue.addOperation(new ShiftOperation(-1));
+        queue.addOperation(new ShiftOperation(5));
         Encoder encoder = new Encoder(queue);
         encoder.setText(digit);
-        assertEquals("0123456789", encoder.getEncodedText());
+        assertEquals("nm,./12345", encoder.getEncodedText());
     }
     
     @Test

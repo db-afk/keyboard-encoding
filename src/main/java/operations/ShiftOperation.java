@@ -1,5 +1,7 @@
 package operations;
 
+import util.MatrixUtil;
+
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -14,9 +16,9 @@ public class ShiftOperation implements ShuffleOperation {
     
     @Override
     public void execute() {
-        for (Character[] strings : ma3x) {
-            Collections.rotate(Arrays.asList(strings), k);
-        }
+        final Object[] flatten = MatrixUtil.flatten(ma3x);
+        Collections.rotate(Arrays.asList(flatten), -k);
+        ma3x = (Character[][]) MatrixUtil.makeMatrix(flatten, 4, 10);
     }
     
     @Override

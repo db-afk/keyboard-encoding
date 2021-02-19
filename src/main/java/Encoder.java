@@ -11,6 +11,10 @@ public class Encoder {
         this.executor = executor;
     }
     
+    public String getText() {
+        return text;
+    }
+    
     public void setText(Path path) throws IOException {
         this.text = String.join("", Files.readAllLines(path));
     }

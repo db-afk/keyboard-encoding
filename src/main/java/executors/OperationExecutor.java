@@ -1,3 +1,5 @@
+package executors;
+
 import operations.HorizontalFlip;
 import operations.ShiftOperation;
 import operations.ShuffleOperation;

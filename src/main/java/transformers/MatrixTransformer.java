@@ -1,3 +1,5 @@
+package transformers;
+
 import org.apache.commons.lang.ArrayUtils;
 
 import java.io.IOException;
@@ -6,6 +8,8 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class MatrixTransformer {
+    
+    private MatrixTransformer() { }
     
     public static Character[][] transformMatrix(Path path) throws IOException {
         List<String> ma3x = Files.readAllLines(path);

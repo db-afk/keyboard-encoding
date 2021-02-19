@@ -1,7 +1,10 @@
+import encoders.Encoder;
+import executors.OperationExecutor;
 import operations.HorizontalFlip;
 import operations.ShiftOperation;
 import operations.VerticalFlip;
 import org.junit.jupiter.api.Test;
+import transformers.MatrixTransformer;
 
 import java.io.IOException;
 import java.nio.file.Path;

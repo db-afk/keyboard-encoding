@@ -1,6 +1,6 @@
 package operations;
 
-public class VerticalFlip implements ShuffleOperation {
+public final class VerticalFlip implements ShuffleOperation {
     
     private Character[][] ma3x;
     

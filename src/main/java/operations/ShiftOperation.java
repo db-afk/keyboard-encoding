@@ -5,7 +5,7 @@ import util.MatrixUtil;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class ShiftOperation implements ShuffleOperation {
+public final class ShiftOperation implements ShuffleOperation {
     
     private Character[][] ma3x;
     private final int k;

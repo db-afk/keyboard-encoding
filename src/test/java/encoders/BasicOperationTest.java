@@ -1,4 +1,5 @@
-import encoders.Encoder;
+package encoders;
+
 import operations.HorizontalFlip;
 import operations.ShiftOperation;
 import operations.VerticalFlip;

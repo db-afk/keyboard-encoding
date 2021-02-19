@@ -19,8 +19,7 @@ public class LoremTest {
     
     @Test
     public void testDefaultOperations() throws IOException {
-        Path oper = Paths.get("src/test/resources/operations.txt");
-        Encoder encoder = new Encoder(text, oper);
+        Encoder encoder = new Encoder(text, Paths.get("src/test/resources/operations.txt"));
         
         assertEquals("Llfd7 k;wj7 elolf wkg q7dg8 3l6wd3gdgjf " +
                         "qek;kw3k6t dokg9 Ug 6d3lf6qfd ejk8 3l64qookw yd6efdfkg " +
@@ -37,9 +36,7 @@ public class LoremTest {
     
     @Test
     public void testBadOperations() throws IOException {
-        Path oper = Paths.get("src/test/resources/operations-bad.txt");
-        
-        Encoder encoder = new Encoder(text, oper);
+        Encoder encoder = new Encoder(text, Paths.get("src/test/resources/operations-bad.txt"));
         
         assertEquals("Llfd7 k;wj7 elolf wkg q7dg8 3l6wd3gdgjf " +
                         "qek;kw3k6t dokg9 Ug 6d3lf6qfd ejk8 3l64qookw yd6efdfkg " +

@@ -2,7 +2,7 @@ package encoders;
 
 import executors.OperationExecutor;
 import operations.ShuffleOperation;
-import transformers.MatrixTransformer;
+import util.MatrixTransformer;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -22,22 +22,15 @@ public class Encoder {
         setText(textPath);
     }
     
-    public Encoder(Path textPath, List<ShuffleOperation> operationList) throws IOException {
+    // Used only in unit-tests
+    Encoder(Path textPath, List<ShuffleOperation> operationList) throws IOException {
         Path kbd = Paths.get("src/main/resources/kbd.txt");
         this.executor = new OperationExecutor(MatrixTransformer.transformMatrix(kbd));
         operationList.forEach(this.executor::addOperation);
         setText(textPath);
     }
     
-    public Encoder(OperationExecutor executor) {
-        this.executor = executor;
-    }
-    
-    public String getText() {
-        return text;
-    }
-    
-    public void setText(Path path) throws IOException {
+    private void setText(Path path) throws IOException {
         this.text = String.join("", Files.readAllLines(path));
     }
     

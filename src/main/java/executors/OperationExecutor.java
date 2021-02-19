@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 public class OperationExecutor {
     
     private final Queue<ShuffleOperation> queue;
-    private Character[][] ma3x;
+    private final Character[][] ma3x;
     
     public OperationExecutor(Character[][] ma3x) {
         this.ma3x = ma3x;
@@ -30,10 +30,6 @@ public class OperationExecutor {
     public void addOperation(ShuffleOperation operation) {
         operation.setMa3x(ma3x);
         queue.add(operation);
-    }
-    
-    public void removeOperation(ShuffleOperation operation) {
-        queue.remove(operation);
     }
     
     public Map<Character, Character> execute() {

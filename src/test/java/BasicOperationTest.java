@@ -1,49 +1,41 @@
 import encoders.Encoder;
-import executors.OperationExecutor;
 import operations.HorizontalFlip;
 import operations.ShiftOperation;
 import operations.VerticalFlip;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import transformers.MatrixTransformer;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BasicOperationTest {
     
+    private static Path digit;
+    
+    @BeforeAll
+    public static void SetUp() {
+        digit = Paths.get("src/test/resources/digit.txt");
+    }
+    
     @Test
     public void testShift() throws IOException {
-        Path digit = Paths.get("src/test/resources/digit.txt");
-        Path kbd = Paths.get("src/test/resources/kbd.txt");
-        OperationExecutor queue = new OperationExecutor(MatrixTransformer.transformMatrix(kbd));
-        queue.addOperation(new ShiftOperation(5));
-        Encoder encoder = new Encoder(queue);
-        encoder.setText(digit);
+        Encoder encoder = new Encoder(digit, Collections.singletonList(new ShiftOperation(5)));
         assertEquals("nm,./12345", encoder.getEncodedText());
     }
     
     @Test
     public void testVerticalFlip() throws IOException {
-        Path digit = Paths.get("src/test/resources/digit.txt");
-        Path kbd = Paths.get("src/test/resources/kbd.txt");
-        OperationExecutor queue = new OperationExecutor(MatrixTransformer.transformMatrix(kbd));
-        queue.addOperation(new VerticalFlip());
-        Encoder encoder = new Encoder(queue);
-        encoder.setText(digit);
+        Encoder encoder = new Encoder(digit, Collections.singletonList(new VerticalFlip()));
         assertEquals("0987654321", encoder.getEncodedText());
     }
     
     @Test
     public void testHorizontalFlip() throws IOException {
-        Path digit = Paths.get("src/test/resources/digit.txt");
-        Path kbd = Paths.get("src/test/resources/kbd.txt");
-        OperationExecutor queue = new OperationExecutor(MatrixTransformer.transformMatrix(kbd));
-        queue.addOperation(new HorizontalFlip());
-        Encoder encoder = new Encoder(queue);
-        encoder.setText(digit);
+        Encoder encoder = new Encoder(digit, Collections.singletonList(new HorizontalFlip()));
         assertEquals("zxcvbnm,./", encoder.getEncodedText());
     }
 }

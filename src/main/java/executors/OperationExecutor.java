@@ -48,8 +48,8 @@ public class OperationExecutor {
                 .collect(Collectors.toMap(i -> originalSingle[i], i -> kbSingle[i]));
     }
     
-    public void setOperations(Path oper) throws IOException {
-        final String operations = Files.readString(oper);
+    public void setOperations(Path operationPath) throws IOException {
+        final String operations = Files.readString(operationPath);
         final String[] split = operations.split(",");
         for (String s : split) {
             if ("H".equals(s.toUpperCase(Locale.ROOT))) {

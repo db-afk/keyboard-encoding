@@ -1,4 +1,4 @@
-#Overview
+# Overview
 The goal of this exercise is to write a stand-alone simple Java
 application that performs simple encoding
 ![img.png](img.png)
@@ -13,14 +13,14 @@ There are three types of transformations:
 # Horizontal Flip (H)
 This transformation will flip all rows of the keyboard horizontally.
   
-####Example, doing a single horizontal flip will result in:
+#### Example, doing a single horizontal flip will result in:
   - 1 will swap with 0
   - 2 will swap with 9
   - (and so on)
 
 ![img_1.png](img_1.png)
 
-#Vertical Flip (V)
+# Vertical Flip (V)
 - This transformation will flip all rows of the keyboard vertically.
 #### Example, doing a single vertical flip will result in:
   - 1 will swap with z
@@ -30,7 +30,7 @@ This transformation will flip all rows of the keyboard horizontally.
 
 ![img_2.png](img_2.png)
 
-#Shift (#)
+# Shift (#)
 
 - This transformation should take in an integer N and perform a linear shift of the
 keyboard. Each key should shift N places to its right if N > 0 (and likewise to the left if

@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class OperationTest {
+public class BasicOperationTest {
     
     @Test
     public void testShift() throws IOException {

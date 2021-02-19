@@ -1,6 +1,13 @@
+import operations.HorizontalFlip;
+import operations.ShiftOperation;
 import operations.ShuffleOperation;
+import operations.VerticalFlip;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayDeque;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Queue;
@@ -41,5 +48,24 @@ public class OperationExecutor {
         
         return IntStream.range(0, originalSingle.length).boxed()
                 .collect(Collectors.toMap(i -> originalSingle[i], i -> kbSingle[i]));
+    }
+    
+    public void setOperations(Path oper) throws IOException {
+        final String operations = Files.readString(oper);
+        final String[] split = operations.split(",");
+        for (String s : split) {
+            if ("H".equals(s.toUpperCase(Locale.ROOT))) {
+                this.addOperation(new HorizontalFlip());
+            } else if ("V".equals(s.toUpperCase(Locale.ROOT))) {
+                this.addOperation(new VerticalFlip());
+            } else {
+                try {
+                    final int k = Integer.parseInt(s);
+                    this.addOperation(new ShiftOperation(k));
+                } catch (NumberFormatException ex) {
+                    // skip this value
+                }
+            }
+        }
     }
 }

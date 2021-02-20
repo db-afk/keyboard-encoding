@@ -42,3 +42,15 @@ the top row, the 12345 would move 5 places to the right, 67890 would move to the
 start of the 2nd row, and soon). Likewise, left-shifting keys past their current rows
 would shift them back into the row above. Therefore, a single right, and a left shift
 would produce the same keyboard.
+
+# How to use the application
+This application is created solely using Maven. Using Mavens `mvn install` command 
+you can install projects into your Maven repository, so it can be used to compile other projects that depend on it.
+
+This app has very little dependencies:
+- `junit-jupiter-engine` and `maven-surefire-plugin` for unit tests
+- `commons-lang` for some non-trivial Java operations.
+
+The main class within the app is the `Encoder` it accepts the **path** to the text which is going to be encrypted 
+and list of **operations** stored in comma-separated text file. To obtain the encoded text 
+(based on operations listed in operation file) `getEncodedText()` should be call. 
